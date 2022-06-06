@@ -1,0 +1,1 @@
+#  Aplicação Java com Gradle que utiliza o JUnit
