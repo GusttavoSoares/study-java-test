@@ -1,9 +1,11 @@
+package demogradle.FigurasGeometricas;
+
 public class Quadrado {
     private int lado;
 
     public Quadrado(){ }
     public Quadrado(int lado){
-        this.lado = lado;
+        setLado(5);
     }
 
     public int getLado(){

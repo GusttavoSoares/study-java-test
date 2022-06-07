@@ -8,7 +8,9 @@ repositories { // quando o projeto precisar de alguma dependência em que lugar 
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:31.1-jre' // necessário para aplicação em todos os cenários: desenvolvimento, teste e entrega
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+// necessário para aplicação em todos os cenários: desenvolvimento, teste e entrega
     testImplementation 'junit:junit:4.13.2' // necessário apenas quando for realizar testes
 }
 
