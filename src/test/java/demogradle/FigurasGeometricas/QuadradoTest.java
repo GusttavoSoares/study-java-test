@@ -11,8 +11,7 @@ public class QuadradoTest {
 
 
     @Test
-    @DisplayName("SetLado  não atribui valor quando o lado é igual ou menor que zero")
-    public void setLado_Nao_Atribui_Valor_Quando_Lado_E_Iguai_Ou_Menor_Que_Zero(){
+    public void testSetLadoDoesNotAssignValueWhenLadoEqualsOrLessThanZero(){
         Quadrado classUnderTest = new Quadrado(-2); // instância de Quadrado
         Quadrado classUnderTest2 = new Quadrado(0);
         Assert.assertNotSame(classUnderTest.getLado(), -2 );
@@ -20,7 +19,6 @@ public class QuadradoTest {
     }
 
     @Test
-    @DisplayName("SetLado lança exceção com a mensagem correta quando lado é igual ou menor que zero")
     public void testSetLadoThrowsExceptionWithCorrectMessage(){
         IllegalArgumentException exceptionMessage = assertThrows(
                 IllegalArgumentException.class,
@@ -31,7 +29,6 @@ public class QuadradoTest {
     }
 
     @Test
-    @DisplayName("CalcularArea retorna o valor correto")
     public void testCalcularArea(){
         Quadrado classUnderTest = new Quadrado(); // instância de Quadrado
         classUnderTest.setLado(5);
