@@ -1,19 +1,22 @@
 package demogradle.FigurasGeometricas;
 
-import org.junit.Assert;
-import org.junit.Test;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class QuadradoTest {
 
+    //TODO: testar criação de um quadrado com valor de lado válido
 
-    @Test
-    public void testSetLadoDoesNotAssignValueWhenLadoEqualsOrLessThanZero() {
-        Quadrado classUnderTest = new Quadrado(-2); // instância de Quadrado
-        Quadrado classUnderTest2 = new Quadrado(0);
-        Assert.assertNotSame(classUnderTest.getLado(), -2);
-        Assert.assertNotSame(classUnderTest2.getLado(), 0);
+    @ParameterizedTest
+    @ValueSource(ints = { 0, -2 })
+    public void testSetLadoDoesNotAssignValueWhenLadoEqualsOrLessThanZero(int lado) {
+
+        assertThrows(IllegalArgumentException.class, () ->  new Quadrado(lado));
     }
 
     @Test
@@ -21,23 +24,32 @@ public class QuadradoTest {
         Quadrado classUnderTest = new Quadrado();
         Exception exception = assertThrows(IllegalArgumentException.class, () -> classUnderTest.setLado(-2));
 
-        assertEquals("Erro: número menor ou igual a 0", exception.getMessage());
+        assertEquals(Quadrado.ERROR_MESSAGE, exception.getMessage());
     }
 
     @Test
     public void testCalcularArea() {
-        Quadrado classUnderTest = new Quadrado();
-        classUnderTest.setLado(5);
-        int valorEsperado = 25;
-        Assert.assertEquals(classUnderTest.calcularArea(), valorEsperado);
+        Quadrado quadrado = sampleQuadrado();
+
+
+        int actual = quadrado.calcularArea();
+
+        int expected = 25;
+        assertEquals( expected, actual);
     }
 
     @Test
     public void testCalcularPerimetro() {
-        Quadrado classUnderTest = new Quadrado();
-        classUnderTest.setLado(5);
-        int valorEsperado = 20;
-        Assert.assertEquals(classUnderTest.calcularPerimetro(), valorEsperado);
+        Quadrado quadrado = sampleQuadrado();
+
+        int actual = quadrado.calcularPerimetro();
+
+        int expected = 20;
+        assertEquals(expected, actual);
+    }
+
+    public static Quadrado sampleQuadrado(){
+        return new Quadrado(5);
     }
 
 }

@@ -9,9 +9,15 @@ repositories { // quando o projeto precisar de alguma dependência em que lugar 
 
 dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
-    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 // necessário para aplicação em todos os cenários: desenvolvimento, teste e entrega
-    testImplementation 'junit:junit:4.13.2' // necessário apenas quando for realizar testes
+//    testImplementation 'junit:junit:4.13.2' // necessário apenas quando for realizar testes
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.1'
 }
 
 mainClassName = 'demogradle.App' // qual a classe que vai rodar a aplicação (ponto de entrada )
+
+test {
+    useJUnitPlatform()
+}
