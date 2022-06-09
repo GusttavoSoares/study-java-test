@@ -2,10 +2,7 @@ package demogradle.FigurasGeometricas;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 public class RetanguloTest {
 
@@ -22,17 +19,17 @@ public class RetanguloTest {
     @Test
     public void testSetAlturaThrowsExceptionWithCorrectMessage() {
         Retangulo classUnderTest = new Retangulo();
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> classUnderTest.setAltura(-1));
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> classUnderTest.setAltura(-1));
 
-        assertEquals("Erro: número menor ou igual a 0", exception.getMessage());
+        Assert.assertEquals("Erro: número menor ou igual a 0", exception.getMessage());
     }
 
     @Test
     public void testSetBaseThrowsExceptionWithCorrectMessage() {
         Retangulo classUnderTest = new Retangulo();
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> classUnderTest.setBase(-1));
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> classUnderTest.setBase(-1));
 
-        assertEquals("Erro: número menor ou igual a 0", exception.getMessage());
+        Assert.assertEquals("Erro: número menor ou igual a 0", exception.getMessage());
     }
 
     @Test
@@ -43,7 +40,6 @@ public class RetanguloTest {
     }
 
     @Test
-    @DisplayName("CalcularPerimetro retorna o valor correto")
     public void testCalcularPerimetro() {
         Retangulo classUnderTest = new Retangulo(4, 8);
         int valorEsperado = 24;
