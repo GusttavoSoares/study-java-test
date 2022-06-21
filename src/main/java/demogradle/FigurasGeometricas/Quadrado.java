@@ -10,10 +10,6 @@ public class Quadrado {
 
     public Quadrado(int lado) throws IllegalArgumentException {
         setLado(lado);
-//        if (lado > 0)
-//            this.lado = lado;
-//        else
-//            throw new IllegalArgumentException("Erro: número menor ou igual a 0");
     }
 
     public int getLado() {

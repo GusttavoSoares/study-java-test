@@ -10,13 +10,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class QuadradoTest {
 
-    //TODO: testar criação de um quadrado com valor de lado válido
+
+    @Test
+    public void createQuadradoIsTrue() {
+        Quadrado quadrado = new Quadrado(10);
+        int ladoExpected = quadrado.getLado();
+
+        assertEquals(ladoExpected, 10);
+    }
 
     @ParameterizedTest
-    @ValueSource(ints = { 0, -2 })
+    @ValueSource(ints = {0, -2})
     public void testSetLadoDoesNotAssignValueWhenLadoEqualsOrLessThanZero(int lado) {
 
-        assertThrows(IllegalArgumentException.class, () ->  new Quadrado(lado));
+        assertThrows(IllegalArgumentException.class, () -> new Quadrado(lado));
     }
 
     @Test
@@ -35,7 +42,7 @@ public class QuadradoTest {
         int actual = quadrado.calcularArea();
 
         int expected = 25;
-        assertEquals( expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -48,7 +55,7 @@ public class QuadradoTest {
         assertEquals(expected, actual);
     }
 
-    public static Quadrado sampleQuadrado(){
+    public static Quadrado sampleQuadrado() {
         return new Quadrado(5);
     }
 

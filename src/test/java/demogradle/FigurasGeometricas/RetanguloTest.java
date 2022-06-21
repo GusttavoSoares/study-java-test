@@ -8,7 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RetanguloTest {
 
-    //TODO: testar criação de um retangulo com valor de base e altura válidos
+
+    @Test
+    public void createRetanguloIsTrue() {
+        Retangulo retangulo = new Retangulo(10, 5);
+        int baseExpected = retangulo.getBase();
+        int alturaExpected = retangulo.getAltura();
+
+        assertEquals(baseExpected, 10);
+        assertEquals(alturaExpected, 5);
+    }
+
     @Test
     public void testConstructorDoesNotAssignValueWhenLadoEqualsOrLessThanZero() {
 
